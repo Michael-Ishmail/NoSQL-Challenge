@@ -1,7 +1,7 @@
 const { Schema, Types, model } = require('mongoose')
 const moment = require('moment')
 
-const reactionsSchema = new schema (
+const reactionsSchema = new Schema (
     {
         reactionId: {
             type: Schema.Types.ObjectId,
