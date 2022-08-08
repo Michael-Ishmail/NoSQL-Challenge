@@ -11,8 +11,7 @@ app.use(express.static('public'))
 
 app.use(require('./routes'))
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/NoSQL-Challenge', {
-    useFindAndModify: false,
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/NoSQL-Challenge', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
