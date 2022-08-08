@@ -10,12 +10,9 @@ const usersController = {
 
     getAllUsers(req, res) {
         Users.find({})
-        // populate users thoughts
         .populate({path: 'thoughts', select: '-__v'})
-        // populate user friends
         .populate({path: 'friends', select: '-__v'})
         .select('-__v')
-        // .sort({_id: -1})
         .then(dbUsersData => res.json(dbUsersData))
         .catch(err => {
             console.log(err);
@@ -28,7 +25,6 @@ const usersController = {
         .populate({path: 'thoughts', select: '-__v'})
         .populate({path: 'friends', select: '-__v'})
         .select('-__v')
-        // return if no user is found 
         .then(dbUsersData => {
             if(!dbUsersData) {
                 res.status(404).json({message: 'No user found with this ID.'});
